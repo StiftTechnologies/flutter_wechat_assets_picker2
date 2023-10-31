@@ -21,6 +21,7 @@ const List<AssetPickerTextDelegate> assetPickerTextDelegates =
   VietnameseAssetPickerTextDelegate(),
   TurkishAssetPickerTextDelegate(),
   BrazilianPortugueseAssetPickerTextDelegate(),
+  SpanishAssetPickerTextDelegate(),
   KoreanAssetPickerTextDelegate(),
 ];
 
@@ -1130,6 +1131,102 @@ class BrazilianPortugueseAssetPickerTextDelegate
 
   @override
   String get sUnitAssetCountLabel => 'quantidade';
+}
+
+/// [AssetPickerTextDelegate] implements with Spanish.
+/// Spanish Localization
+class SpanishAssetPickerTextDelegate extends AssetPickerTextDelegate {
+  const SpanishAssetPickerTextDelegate();
+
+  @override
+  String get languageCode => 'es';
+
+  @override
+  String get confirm => 'Continuar';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get edit => 'Editar';
+
+  @override
+  String get gifIndicator => 'GIF';
+
+  @override
+  String get loadFailed => 'Fallo al cargar';
+
+  @override
+  String get original => 'Original';
+
+  @override
+  String get preview => 'Vista previa';
+
+  @override
+  String get select => 'Seleccionar';
+
+  @override
+  String get emptyList => 'Lista vacía';
+
+  @override
+  String get unSupportedAssetType => 'Este tipo de archivo no es soportado';
+
+  @override
+  String get unableToAccessAll =>
+      'No fue posible acceder a todos los archivos del dispositivo';
+
+  @override
+  String get viewingLimitedAssetsTip =>
+      'Mostrar solo archivos y álbumes de la aplicación.';
+
+  @override
+  String get changeAccessibleLimitedAssets => 'Actualizar archivos';
+
+  @override
+  String get accessAllTip => 'Solo algunos archivos están disponibles. '
+      'Acceda a las configuraciones del sistema y permita que la aplicación acceda a todos los archivos del dispositivo.';
+
+  @override
+  String get goToSystemSettings => 'Acceda a configuraciones del sistema';
+
+  @override
+  String get accessLimitedAssets => 'Continuar con acceso limitado';
+
+  @override
+  String get accessiblePathName => 'Archivos disponibles';
+
+  @override
+  String get sTypeAudioLabel => 'Audio';
+
+  @override
+  String get sTypeImageLabel => 'Imagen';
+
+  @override
+  String get sTypeVideoLabel => 'Video';
+
+  @override
+  String get sTypeOtherLabel => 'Otros documentos';
+
+  @override
+  String get sActionPlayHint => 'reproducir';
+
+  @override
+  String get sActionPreviewHint => 'vista previa';
+
+  @override
+  String get sActionSelectHint => 'seleccionar';
+
+  @override
+  String get sActionSwitchPathLabel => 'cambiar ruta';
+
+  @override
+  String get sActionUseCameraHint => 'usar cámara';
+
+  @override
+  String get sNameDurationLabel => 'duración';
+
+  @override
+  String get sUnitAssetCountLabel => 'cantidad';
 }
 
 /// [AssetPickerTextDelegate] implements with Korean.
