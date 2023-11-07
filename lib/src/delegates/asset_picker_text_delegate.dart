@@ -1043,7 +1043,7 @@ class BrazilianPortugueseAssetPickerTextDelegate
   const BrazilianPortugueseAssetPickerTextDelegate();
 
   @override
-  String get languageCode => 'pt-br';
+  String get languageCode => 'pt';
 
   @override
   String get confirm => 'Continuar';
