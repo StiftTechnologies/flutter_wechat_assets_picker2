@@ -66,16 +66,18 @@ class AssetPickerDelegate {
     BuildContext context, {
     Key? key,
     AssetPickerConfig pickerConfig = const AssetPickerConfig(),
+    PermissionRequestOption? permissionRequestOption,
     bool useRootNavigator = true,
     AssetPickerPageRouteBuilder<List<AssetEntity>>? pageRouteBuilder,
   }) async {
-    final PermissionState ps = await permissionCheck(
-      requestOption: PermissionRequestOption(
-        androidPermission: AndroidPermission(
-          type: pickerConfig.requestType,
-          mediaLocation: false,
-        ),
+    permissionRequestOption ??= PermissionRequestOption(
+      androidPermission: AndroidPermission(
+        type: pickerConfig.requestType,
+        mediaLocation: false,
       ),
+    );
+    final PermissionState ps = await permissionCheck(
+      requestOption: permissionRequestOption,
     );
     final AssetPickerPageRoute<List<AssetEntity>> route =
         pageRouteBuilder?.call(const SizedBox.shrink()) ??
@@ -115,10 +117,10 @@ class AssetPickerDelegate {
         locale: Localizations.maybeLocaleOf(context),
       ),
     );
-    final List<AssetEntity>? result = await Navigator.of(
+    final List<AssetEntity>? result = await Navigator.maybeOf(
       context,
       rootNavigator: useRootNavigator,
-    ).push<List<AssetEntity>>(
+    )?.push<List<AssetEntity>>(
       pageRouteBuilder?.call(picker) ??
           AssetPickerPageRoute<List<AssetEntity>>(builder: (_) => picker),
     );
@@ -157,10 +159,10 @@ class AssetPickerDelegate {
       key: key,
       builder: delegate,
     );
-    final List<Asset>? result = await Navigator.of(
+    final List<Asset>? result = await Navigator.maybeOf(
       context,
       rootNavigator: useRootNavigator,
-    ).push<List<Asset>>(
+    )?.push<List<Asset>>(
       pageRouteBuilder?.call(picker) ??
           AssetPickerPageRoute<List<Asset>>(builder: (_) => picker),
     );

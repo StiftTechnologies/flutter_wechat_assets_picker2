@@ -7,40 +7,65 @@ that can be found in the LICENSE file. -->
 > [!IMPORTANT]  
 > See the [Migration Guide](guides/migration_guide.md) for the details of breaking changes between versions.
 
-## 9.0.0-dev.3
-
-### Improvements
-
-- Use `wechat_picker_library`.
+## 9.0.5
 
 ### Fixes
 
-- Fix previewing selected assets behavior.
+- Fix reverted index when previewing assets on Android.
 
-## 9.0.0-dev.2
+## 9.0.4
 
 ### Fixes
 
-- Fix unhandled child semantics with the app bar title.
-- Fix styles around the app bar and other widgets.
+- Fix the app bar of the viewer that is not animating.
+- Fix loading when no assets in the path.
+- Reset the has more to load flag between path switching.
 
-## 9.0.0-dev.1
+## 9.0.3
 
-### Breaking changes
+### Fixes
 
-- Integrate `PermissionRequestOption` for callers.
+- Fix index reverting in `viewAsset`.
+
+## 9.0.2
+
+### Fixes
+
+- Fix the index with bottom items in the preview.
+
+## 9.0.1
+
+### Fixes
+
+- Fix current asset in the picker viewer.
 
 ### Improvements
 
-- Adapt `ThemeData` usages.
+- Improve code formatting. 
 
-## 8.9.0-dev.1
+## 9.0.0
 
 ### Breaking changes
 
 - Migrate to Flutter 3.16, and drop supports for previous Flutter versions.
 - Bump `photo_manager` to v3.x.
 - Export `photo_manager_image_provider`.
+- Integrate `PermissionRequestOption` for callers.
+
+### Improvements
+
+- Adapt `ThemeData` usages.
+- Use `wechat_picker_library`.
+- Make the first asset count not blocking loads.
+
+### Fixes
+
+- Fix unhandled child semantics with the app bar title.
+- Fix styles around the app bar and other widgets.
+- Fix previewing selected assets' behavior.
+- Use `PermissionRequestOption` as much as possible.
+- Raise more errors for non-synced paths.
+- Fix the experience with `shouldRevertGrid`.
 
 ## 8.8.0
 

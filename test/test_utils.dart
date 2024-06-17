@@ -44,8 +44,7 @@ Widget defaultPickerTestApp({
 }
 
 class _DefaultHomePage extends StatelessWidget {
-  // ignore: unused_element
-  const _DefaultHomePage(this.onButtonPressed, {super.key});
+  const _DefaultHomePage(this.onButtonPressed);
 
   final void Function(BuildContext)? onButtonPressed;
 
@@ -54,7 +53,9 @@ class _DefaultHomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: TextButton(
-          onPressed: () => onButtonPressed?.call(context),
+          onPressed: () {
+            onButtonPressed?.call(context);
+          },
           child: const Text(_testButtonText),
         ),
       ),
@@ -84,16 +85,18 @@ class TestAssetPickerDelegate extends AssetPickerDelegate {
     BuildContext context, {
     Key? key,
     AssetPickerConfig pickerConfig = const AssetPickerConfig(),
+    PermissionRequestOption? permissionRequestOption,
     bool useRootNavigator = true,
     AssetPickerPageRouteBuilder<List<AssetEntity>>? pageRouteBuilder,
   }) async {
-    final PermissionState ps = await permissionCheck(
-      requestOption: PermissionRequestOption(
-        androidPermission: AndroidPermission(
-          type: pickerConfig.requestType,
-          mediaLocation: false,
-        ),
+    permissionRequestOption ??= PermissionRequestOption(
+      androidPermission: AndroidPermission(
+        type: pickerConfig.requestType,
+        mediaLocation: false,
       ),
+    );
+    final PermissionState ps = await permissionCheck(
+      requestOption: permissionRequestOption,
     );
     final AssetPathEntity pathEntity = AssetPathEntity(
       id: 'test',
